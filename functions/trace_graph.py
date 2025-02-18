@@ -3,6 +3,7 @@ from graphviz import Digraph
 def trace(root):
   # builds a set of all nodes and edges in a graph
   nodes, edges = set(), set()
+
   def build(v):
     if v not in nodes:
       nodes.add(v)
