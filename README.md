@@ -19,7 +19,7 @@ The forward pass is the process of computing the output of the network given an 
 
 Below is a simple example of a neural network that is called "perceptron" with one input layer and one output layer.
 
-![Perceptron](image.png)
+![Perceptron](./attachments/perceptron.png)
 Source: [Sharp Sight](https://www.sharpsightlabs.com/blog/python-perceptron-from-scratch/).
 
 The input values here correspond to the values that are fed into the network.
@@ -33,7 +33,7 @@ Where $x_i$ is the input value, $w_i$ is the weight of the network and $b$ is th
 
 After that, the summation is passed through an activation function. The activation function is used to introduce non-linearity into the network, it can be a step function, sigmoid function, ReLU function, etc. The one used in the picture above is called the step function:
 
-![Step function](image-1.png)
+![Step function](./attachments/step_function.png)
 
 The output of the network is the output of the activation function.
 
@@ -49,5 +49,5 @@ Where $y_i$ is the true value and $\hat{y}_i$ is the predicted value, and $n$ is
 ### 3. Backward pass
 The backward pass is the process of computing the gradient of the loss function with respect to the weights of the network.
 
-![Gradient descent](image-2.png)
+![Gradient descent](./attachments/gradient_descent.png)
 Source: [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2020/10/how-does-the-gradient-descent-algorithm-work-in-machine-learning/).
