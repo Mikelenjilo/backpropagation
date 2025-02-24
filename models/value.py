@@ -10,7 +10,7 @@ class Value:
         self.label = label
 
     def __repr__(self):
-        return f"Value(data={self.data})"
+        return f"Value(label={self.label}, data={self.data}, grad={self.grad})"
     
     def __add__(self, other):
         other = other if isinstance(other, Value) else Value(other)
@@ -75,24 +75,24 @@ class Value:
         out = Value(math.exp(x), (self, ), 'exp')
         
         def _backward():
-            self.grad += out.data * out.grad # NOTE: in the video I incorrectly used = instead of +=. Fixed here.
+            self.grad += out.data * out.grad
         out._backward = _backward
         
         return out
     
-    
+            
     def backward(self):
         topo = []
         visited = set()
+        stack = [self]
         
-        def build_topo(v):
+        while stack:
+            v = stack.pop()
             if v not in visited:
                 visited.add(v)
-                for child in v._prev:
-                    build_topo(child)
+                stack.extend(v._prev)
                 topo.append(v)
-        build_topo(self)
-        
+                
         self.grad = 1.0
-        for node in reversed(topo):
+        for node in topo:
             node._backward()
